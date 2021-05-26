@@ -20,7 +20,7 @@ import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 
 /**
- * 简单的生产和消息例子
+ * 简单的生产和消息例子 test
  *
  */
 
