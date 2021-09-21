@@ -19,7 +19,7 @@ public class SimpleProducerAndConsumer {
 	    // 一个Pulsar client对应一个客户端链接
         // 原则上一个进程一个client，尽量避免重复创建，消耗资源
         // 关于客户端和生产消费者的最佳实践，可以参考官方文档 https://cloud.tencent.com/document/product/1179/58090
-	    PulsarClient client = PulsarClient.builder()
+        PulsarClient client = PulsarClient.builder()
                 //ip:port 替换成路由ID，位于【集群管理】接入点列表
                 .serviceUrl("http://pulsar-****.****.tencenttdmq.com:8080")
                 //替换成角色密钥，位于【角色管理】页面
