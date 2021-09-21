@@ -21,18 +21,18 @@ public class SimpleProducerAndConsumer {
         // 关于客户端和生产消费者的最佳实践，可以参考官方文档 https://cloud.tencent.com/document/product/1179/58090
         PulsarClient client = PulsarClient.builder()
                 //ip:port 替换成路由ID，位于【集群管理】接入点列表
-                .serviceUrl("http://pulsar-****.****.tencenttdmq.com:8080")
+                .serviceUrl(Config.SERVICE_URL)
                 //替换成角色密钥，位于【角色管理】页面
-                .authentication(AuthenticationFactory.token("eyJr****"))
+                .authentication(AuthenticationFactory.token(Config.TOKEN))
                 .build();
         System.out.println(">> pulsar client created.");
 
         //创建消费者
         Consumer<byte[]> consumer = client.newConsumer()
                 //topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称，从【Topic管理】处复制
-                .topic("persistent://pulsar-****/namespace/topicName")
+                .topic(Config.TOPIC)
                 //需要在控制台Topic详情页创建好一个订阅，此处填写订阅名
-                .subscriptionName("subscriptionName")
+                .subscriptionName(Config.SUBSCRIPTION)
                 //声明消费模式为exclusive（独占）模式
                 .subscriptionType(SubscriptionType.Exclusive)
                 //配置从最早开始消费，否则可能会消费不到历史消息
@@ -43,7 +43,7 @@ public class SimpleProducerAndConsumer {
         //创建生产者
         Producer<byte[]> producer = client.newProducer()
                 //topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
-                .topic("persistent://pulsar-****/namespace/topicName")
+                .topic(Config.TOPIC)
                 .create();
         System.out.println(">> pulsar producer created.");
 
