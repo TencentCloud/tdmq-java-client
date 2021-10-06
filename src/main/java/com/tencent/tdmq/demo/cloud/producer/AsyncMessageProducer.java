@@ -3,6 +3,8 @@ package com.tencent.tdmq.demo.cloud.producer;
 import com.tencent.tdmq.demo.cloud.Config;
 import org.apache.pulsar.client.api.*;
 
+import static java.lang.Thread.sleep;
+
 public class AsyncMessageProducer {
 
     public static void main(String[] args) throws PulsarClientException {
