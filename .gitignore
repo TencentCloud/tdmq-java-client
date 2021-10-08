@@ -6,3 +6,4 @@
 
 # Linux swap file
 *.swp
+/src/main/java/com/tencent/tdmq/demo/cloud/producer/
